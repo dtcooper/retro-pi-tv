@@ -67,13 +67,13 @@ class OSD:
             self._osd.surf.fill(TRANSPARENT)
             text = [
                 {"text": str(channel), "size": 120, "padding": (10, 10, 6, 10), "font": "bold"},
-                {"text": name, "size": 32, "color": YELLOW, "padding": 8, "font": "italic"},
+                {"text": name, "size": 44, "color": YELLOW, "padding": 8, "font": "italic"},
             ]
             if self._config.show_fps:
-                text.append({"text": fps, "size": 22, "padding": (5, 7, 7, 7)})
+                text.append({"text": fps, "size": 36, "padding": (5, 7, 7, 7)})
 
             surf, rect = self._mpv.render_multiple_lines_of_text(text, align="left")
-            rect.topleft = self._mpv.scale_pixels(15, 15)
+            rect.topleft = self._mpv.scale_pixels(20, 20)
             self._osd.surf.blit(surf, rect)
 
             if rating:
@@ -99,19 +99,19 @@ class OSD:
         if not self._progress_bar.shown or cache_try != cache_value:
             color = RED if is_paused else WHITE
             self._progress_bar.surf.fill(TRANSPARENT)
-            surf, pos_rect = self._mpv.render_text(format_seconds(position), 25, padding=5)
+            surf, pos_rect = self._mpv.render_text(format_seconds(position), 45, padding=5)
             pos_rect.bottomleft = (
-                self._mpv.scale_pixels(20),
-                self._progress_bar.rect.bottom - self._mpv.scale_pixels(20),
+                self._mpv.scale_pixels(25),
+                self._progress_bar.rect.bottom - self._mpv.scale_pixels(25),
             )
             self._progress_bar.surf.blit(surf, pos_rect)
-            surf, dur_rect = self._mpv.render_text(format_seconds(duration), 25, padding=5)
-            dur_rect.bottomright = (self._progress_bar.rect.right - self._mpv.scale_pixels(20), pos_rect.bottom)
+            surf, dur_rect = self._mpv.render_text(format_seconds(duration), 45, padding=5)
+            dur_rect.bottomright = (self._progress_bar.rect.right - self._mpv.scale_pixels(25), pos_rect.bottom)
             self._progress_bar.surf.blit(surf, dur_rect)
             bar_rect = pygame.Rect(
                 0,
                 0,
-                dur_rect.left - pos_rect.right - self._mpv.scale_pixels(20) - 1,
+                dur_rect.left - pos_rect.right - self._mpv.scale_pixels(25) - 1,
                 dur_rect.height - self._mpv.scale_pixels(5),
             )
             bar_rect.centery = dur_rect.centery
@@ -121,7 +121,7 @@ class OSD:
                 bar_rect.width = position / duration * bar_rect.width
                 pygame.draw.rect(self._progress_bar.surf, BLUE, bar_rect)
             if show_paused:
-                surf, paused_rect = self._mpv.render_text("PAUSED!", 40, padding=8, color=color, font="bold-italic")
+                surf, paused_rect = self._mpv.render_text("PAUSED!", 45, padding=8, color=color, font="bold-italic")
                 paused_rect.centerx = self._progress_bar.rect.centerx
                 paused_rect.bottom = bar_rect.top - self._mpv.scale_pixels(5)
                 self._progress_bar.surf.blit(surf, paused_rect)
@@ -147,7 +147,7 @@ class OSD:
 
         if not self._volume.shown or cache_try != cache_value:
             self._volume.surf.fill(TRANSPARENT)
-            surf, vol_rect = self._mpv.render_text(f"Vol: {volume_str}", 44, padding=9, color=color)
+            surf, vol_rect = self._mpv.render_text(f"Vol: {volume_str}", 50, padding=9, color=color)
             vol_rect.top = self._mpv.scale_pixels(15)
             vol_rect.centerx = self._volume.rect.centerx
             self._volume.surf.blit(surf, vol_rect)

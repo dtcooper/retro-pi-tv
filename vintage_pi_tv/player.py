@@ -132,7 +132,7 @@ class Player:
                 {"text": "No video files detected!", "size": 58, "color": RED, "bgcolor": BLACK, "font": "bold"},
                 {
                     "text": "You may need to insert a USB drive containing videos...",
-                    "size": 28,
+                    "size": 35,
                     "bgcolor": BLACK,
                     "font": "bold-italic",
                 },
@@ -276,7 +276,7 @@ class Player:
                     },
                     {
                         "text": rating_dict["description"],
-                        "size": 32,
+                        "size": 40,
                         "padding": (5, 10, 10, 10),
                         "color": color,
                         "font": "italic",
