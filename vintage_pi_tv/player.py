@@ -355,6 +355,7 @@ class Player:
                                     ):
                                         self._places[video.path] = 0.0  # Reset place to zero
                                     if event["reason"] == "error":
+                                        logger.debug(f"Error event: {event}")
                                         logger.warning(f"Error with video {video.path}. Disabling it.")
                                         self._videos_db.mark_bad_video(video)
                                     logger.info(f"Ending playback of {video.path}")
