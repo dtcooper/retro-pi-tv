@@ -137,7 +137,7 @@ DEFAULT_RATINGS = [
 
 # For Raspberry Pi
 DEFAULT_MPV_OPTIONS = {
-    "ao": "alsa",
+    "ao": "pipewire,pulse,alsa",
     "fullscreen": "yes",
     "gpu-context": "drm",
     "hwdec": "auto-safe",
@@ -149,7 +149,6 @@ DEFAULT_MPV_OPTIONS = {
 DEFAULT_DEV_MPV_OPTIONS = {
     **DEFAULT_MPV_OPTIONS,
     "geometry": "1280x720",  # 720p
-    "ao": "pipewire,pulse,alsa",
     "fullscreen": "no",
     "gpu-context": "x11egl",
     "title": "Vintage Pi TV (dev mode)",

@@ -93,8 +93,8 @@ power-key-shutdown = "pi-only"
 # See https://github.com/jaseg/python-mpv and https://mpv.io/manual/stable/ for more details
 
 ### Defaults (uncomment to change)
-#ao = "alsa"          # audio output driver [https://mpv.io/manual/stable/#audio-output-drivers]
-#vo = "gpu"           # video output driver [https://mpv.io/manual/stable/#video-output-drivers]
+#ao = "pipewire,pulse,alsa" # audio output driver [https://mpv.io/manual/stable/#audio-output-drivers]
+#vo = "gpu"                 # video output driver [https://mpv.io/manual/stable/#video-output-drivers]
 #hwdec = "auto-safe"
 #profile = "sw-fast"
 #gpu-context = "drm"

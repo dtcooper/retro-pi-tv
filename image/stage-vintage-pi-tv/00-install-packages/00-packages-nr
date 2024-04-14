@@ -4,5 +4,8 @@ git
 ir-keytable
 libmpv2
 mpv
+pipewire
+pipewire-alsa
+pipewire-pulse
 python3-dev
 udiskie

@@ -47,7 +47,7 @@ Options:
   -P <int>, --vnc-port <int>
                     Port to bind the VNC server to (default: ${VNC_PORT})
   -a, --audio       Attempt to enable sound via Pulseaudio
-  -b, --browser     Open web browser after starting container
+  -b, --browser     Open web browser (VNC) after starting container
   -f, --force       Force running of this tool, even on a Raspberry Pi
   -h, --help        Show this help screen
 EOF
@@ -173,11 +173,11 @@ fi
 if [ "${DO_OPEN_BROWSER}" ]; then
     verify_cmd_exists python3 'Python 3'
     ( ( sleep 3.5 ; python3 -m webbrowser \
-        -t "http://localhost:${PORT}/?autoconnect=1&resize=remote&reconnect=1&reconnect_delay=1500" \
+        -t "http://127.0.0.1:${VNC_PORT}/?autoconnect=1&resize=remote&reconnect=1&reconnect_delay=1500" \
       ) > /dev/null 2>&1 &);
 fi
 
 DOCKER_EXEC+=("${CONTAINER_NAME}" "$@")
-echo "# Listening on http://127.0.0.1:8000/$([ -z "${DO_OPEN_BROWSER}" ] && echo ' (use -b to open browser)')"
+echo "# Listening on http://127.0.0.1:${VNC_PORT}/$([ -z "${DO_OPEN_BROWSER}" ] && echo ' (use -b to open browser)')"
 echo "\$ ${DOCKER_EXEC[*]}"
 exec "${DOCKER_EXEC[@]}"
