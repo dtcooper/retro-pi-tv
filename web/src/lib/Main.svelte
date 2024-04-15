@@ -1,11 +1,12 @@
 <script>
+  import { persisted } from "svelte-persisted-store"
   import { websocket } from "./websocket"
   import { states } from "../../../constants.json"
   import { isViewableBasedOnCurrentRating, formatDuration } from "./utils"
   import PlayButton from "./components/PlayButton.svelte"
   import RatingBadge from "./components/RatingBadge.svelte"
 
-  let showRemaining = false
+  const showRemaining = persisted("show-remaining", false)
 
   $: current = $websocket.state.video
   $: currentRating = $websocket.current_rating
@@ -73,8 +74,8 @@
       max="100"
       on:click|preventDefault={progressBarSeek}
     />
-    <div class="cursor-pointer ${pausePulseClasses}" on:click={() => (showRemaining = !showRemaining)}>
-      {showRemaining ? remainingPretty : durationPretty}
+    <div class="cursor-pointer ${pausePulseClasses}" on:click={() => ($showRemaining = !$showRemaining)}>
+      {$showRemaining ? remainingPretty : durationPretty}
     </div>
   </div>
 
