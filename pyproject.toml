@@ -15,15 +15,15 @@ pygame-ce = "^2.4.1"
 schema = "^0.7.5"
 starlette = "^0.37.2"
 tomlkit = "^0.12.4"
-uvicorn = "^0.28.0"
+uvicorn = "^0.29.0"
 watchfiles = "^0.21.0"
 websockets = "^12.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.2.0"
+black = "^24.4.0"
 flake8 = "^7.0.0"
 ipdb = "^0.13.13"
-ipython = "^8.22.2"
+ipython = "^8.23.0"
 isort = "^5.13.2"
 
 [tool.poetry.group.keyboard.dependencies]
