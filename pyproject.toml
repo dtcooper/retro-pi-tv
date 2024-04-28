@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 janus = "^1.0.0"
-mpv = "^1.0.5"
+mpv = "^1.0.6"
 numpy = "^1.26.4"
 pygame-ce = "^2.4.1"
 schema = "^0.7.5"
@@ -20,10 +20,10 @@ watchfiles = "^0.21.0"
 websockets = "^12.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.4.0"
+black = "^24.4.2"
 flake8 = "^7.0.0"
 ipdb = "^0.13.13"
-ipython = "^8.23.0"
+ipython = "^8.24.0"
 isort = "^5.13.2"
 
 [tool.poetry.group.keyboard.dependencies]
