@@ -12,9 +12,9 @@ janus = "^1.0.0"
 mpv = "^1.0.6"
 numpy = "^1.26.4"
 pygame-ce = "^2.4.1"
-schema = "^0.7.5"
+schema = "^0.7.7"
 starlette = "^0.37.2"
-tomlkit = "^0.12.4"
+tomlkit = "^0.12.5"
 uvicorn = "^0.29.0"
 watchfiles = "^0.21.0"
 websockets = "^12.0"
@@ -27,8 +27,8 @@ ipython = "^8.24.0"
 isort = "^5.13.2"
 
 [tool.poetry.group.keyboard.dependencies]
-evdev = {version = "^1.7.0", platform = "linux"}
-pyudev = { version = "^0.24.1", platform = "linux" }
+evdev = {version = "^1.7.1", platform = "linux"}
+pyudev = {version = "^0.24.3", platform = "linux"}
 
 [tool.poetry.scripts]
 tv = 'vintage_pi_tv.__main__:run'
