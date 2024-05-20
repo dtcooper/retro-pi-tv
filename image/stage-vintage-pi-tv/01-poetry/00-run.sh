@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-POETRY_VERSION='1.8.2'
+POETRY_VERSION='1.8.3'
 POETRY_HOME=/opt/poetry
 
 install -vm 644 files/poetry.sh "${ROOTFS_DIR}/etc/profile.d/"
